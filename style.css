@@ -1,0 +1,121 @@
+*, *::before, *::after{ box-sizing: border-box; }
+
+body{
+  --dark: rgb(36, 36, 36);
+  font-family: sans-serif;
+  font-size: 22px;
+  margin: 0;
+
+}
+
+input{
+  font-family: inherit;
+  font-weight: 700;
+  border: solid white 1px;
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input:focus,
+input:active
+{
+  outline: none;
+  
+}
+
+section{
+  padding: 4rem 1rem;
+}
+
+.spacing> * + *{
+  margin-top: 0.5em;
+}
+
+.container{
+  margin: 0 auto;
+  width: 750px;
+  max-width: 90%;
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn{
+  border: 0px;
+  padding: 0.5em 1.5em;
+  text-transform: uppercase;
+}
+
+
+.picker{
+
+  background-color: var(--dark);
+  color: white;
+
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+}
+
+.picker input{
+  max-width: 8ch;
+}
+
+.civil{
+  color: rgb(255, 255, 255);
+}
+
+.doctor{
+  color: rgb(0, 255, 0);
+}
+
+.policeman{
+  color: rgb(0, 0, 255);
+}
+
+.mafia{
+  color: rgb(255, 0, 0);
+}
+
+#civil{
+  color: rgb(255, 255, 255);
+  background-color: rgb(120, 128, 120);
+  border: 1px solid rgb(255, 255, 255);
+}
+
+#doctor{
+  color: rgb(0, 255, 0);
+  background-color: rgb(8, 128, 8);
+  border: 1px solid rgb(0, 255, 0);
+}
+
+#policeman{
+  color: rgb(0, 0, 255);
+  background-color: rgb(8, 8, 128);
+  border: 1px solid rgb(0, 0, 255);
+  
+}
+
+#mafia{
+  color: rgb(255, 0, 0);
+  background-color: rgb(128, 8, 8);
+  border: 1px solid rgb(255, 0, 0);
+}
+
+
+

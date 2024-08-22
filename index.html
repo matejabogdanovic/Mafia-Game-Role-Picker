@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Mafia Role Picker</title>
+</head>
+<body>
+  <main>
+    <section class="picker">
+      <div class="container spacing">
+        <div class="row civil">
+          <span>Civil:</span>
+          <input type="number" name="civil" id="civil" value="0" oninput="javascript: this.value = Math.max(this.value, 0) ">
+        </div>
+        
+        <div class="row doctor">
+          <span>Doctor:</span>
+          <input type="number" name="doctor" id="doctor" value="0" oninput="javascript: this.value = Math.max(this.value, 0)">
+        </div>
+
+        <div class="row policeman">
+          <span>Policeman:</span>
+          <input type="number" name="policeman" id="policeman" value="0" oninput="javascript: this.value = Math.max(this.value, 0)">
+        </div>
+
+        <div class="row mafia">
+          <span>Mafia:</span>
+          <input type="number" name="mafia" id="mafia" value="0" oninput="javascript: this.value = Math.max(this.value, 0)">
+        </div>
+
+        <div>
+          <button class="btn" id="pick">Pick</button>
+          <button class="btn" id="reset">Reset</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
