@@ -30,8 +30,45 @@ function recalculateAvailableRoles(){
 let change_disabled = false; // are inputs disabled?
 function pick(){
   disable();
-  let names = [];
-  
+  createNames();
+
+  if(!names.length){btn_pick.disabled = true; return;}
+  pickARole();
+  if(!names.length){btn_pick.disabled = true;}
+}
+
+let picked_role_field = document.getElementById("picked-role");
+function pickARole(){
+  let rolename = names.pop();
+  picked_role_field.innerHTML = rolename;
+}
+
+let btn_clear = document.getElementById("clear");
+btn_clear.addEventListener("click", ()=>{
+  picked_role_field.innerHTML = "###";
+})
+
+
+let names = new Array();
+let picked = false;
+function createNames(){
+  if(picked) return;
+  picked = true;
+  let i = 0;
+  let brojac = 0;
+  while(i<available_roles.length){
+    if(brojac>=available_roles[i]){
+      brojac = 0;
+      ++i;
+    }else{    
+      names.push(role_names[i]);
+      brojac++;
+    }
+  }
+
+  console.log(names);
+  shuffle(names);
+  console.log(names);
 }
 
 function disable(){
@@ -54,4 +91,32 @@ function enable(){
   for(let i = 0; i < available_roles.length; i++){
     available_roles[i] = 0;
   }
+
+  //
+  picked = false;
+  names = [];
+
+  //
+  btn_pick.disabled = false;
+
+  //
+  picked_role_field.innerHTML = "###";
 }
+
+
+function shuffle(array) {
+  let currentIndex = array.length;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+
+    // Pick a remaining element...
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+}
+

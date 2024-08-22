@@ -14,7 +14,7 @@ input{
   border: solid white 1px;
   text-align: center;
 }
-
+/* 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -23,13 +23,16 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield;
-}
+} */
 
 input:focus,
 input:active
 {
   outline: none;
-  
+}
+
+input:disabled{
+  opacity: 0.75;
 }
 
 section{
@@ -52,9 +55,18 @@ section{
 }
 
 .btn{
+
   border: 0px;
   padding: 0.5em 1.5em;
   text-transform: uppercase;
+}
+
+.btn:active{
+  opacity: 0.75;
+}
+
+.btn:disabled{
+  opacity: 0.75;
 }
 
 
@@ -117,5 +129,13 @@ section{
   border: 1px solid rgb(255, 0, 0);
 }
 
+.pickrole{
+  align-items: center;
+}
 
+.btn--clear{
+  padding: 0.5em 1em;
+  color: rgb(255, 0, 0);
+  background-color: rgb(128, 8, 8);
+}
 
