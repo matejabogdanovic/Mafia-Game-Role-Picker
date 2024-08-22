@@ -38,9 +38,11 @@ function pick(){
 }
 
 let picked_role_field = document.getElementById("picked-role");
+let roles_left = document.querySelector(".roles-left");
 function pickARole(){
   let rolename = names.pop();
   picked_role_field.innerHTML = rolename;
+  roles_left.innerHTML = names.length;
 }
 
 let btn_clear = document.getElementById("clear");
@@ -101,6 +103,9 @@ function enable(){
 
   //
   picked_role_field.innerHTML = "###";
+
+  //
+  roles_left.innerHTML = "#";
 }
 
 

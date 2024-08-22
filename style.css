@@ -131,6 +131,9 @@ section{
 
 .pickrole{
   align-items: center;
+  padding: 1em;
+  background-color: white;
+  color: black;
 }
 
 .btn--clear{
