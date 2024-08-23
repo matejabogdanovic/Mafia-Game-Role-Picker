@@ -1,7 +1,9 @@
+// I AM NOT PROUD THIS CODE. I JUST WROTE IT AS FAST AS POSSIBLE <3
+
 let roles = {
   "civil": document.getElementById("civil"),
   "doctor" : document.getElementById("doctor"), 
-  "policeman" : document.getElementById("policeman"), 
+  "police" : document.getElementById("police"), 
   "mafia" : document.getElementById("mafia")
 }; 
 
@@ -17,14 +19,12 @@ btn_pick.addEventListener("click", pick);
 btn_reset.addEventListener("click", enable);
 
 let available_roles = [0, 0, 0, 0]; // civils = 0, doctors = 0, policemen = 0, mafias = 0
-let role_names = ["Civil", "Doctor", "Policeman", "Mafia"];
+let role_names = ["Civil", "Doctor", "Police", "Mafia"];
 function recalculateAvailableRoles(){
   // copy all values from inputs to array
-  let i = 0;
-  for (const [name, element] of Object.entries(roles)) {
-    available_roles[i++] = element.value;
-  }
-  console.log(available_roles)
+  let i = this.getAttribute("data-index");
+  available_roles[i] = Number(this.value==""?0:this.value);
+  console.log("Available roles list: ", available_roles)
 }
 
 let change_disabled = false; // are inputs disabled?
@@ -39,16 +39,40 @@ function pick(){
 
 let picked_role_field = document.getElementById("picked-role");
 let roles_left = document.querySelector(".roles-left");
+// const role_text_color = ["text-civil", "text-doctor", "text-police", "text-mafia"];
+const role_text_color = ["text-civil", "text-civil", "text-civil", "text-civil"];
+let rolename = "###";
 function pickARole(){
-  let rolename = names.pop();
-  picked_role_field.innerHTML = rolename;
+  rolename = names.pop();
+
   roles_left.innerHTML = names.length;
 }
 
-let btn_clear = document.getElementById("clear");
-btn_clear.addEventListener("click", ()=>{
+let btn_eye = document.getElementById("eye");
+
+// for pc
+btn_eye.addEventListener('mousedown', handlePressStart);
+btn_eye.addEventListener('mouseup', handlePressEnd);
+
+// for mobile
+btn_eye.addEventListener('touchstart', handlePressStart);
+btn_eye.addEventListener('touchend', handlePressEnd);
+function handlePressStart(){
+  console.log("down")
+  picked_role_field.innerHTML = rolename;
+  let i = 0;
+  for(; i < role_names.length; i++){
+    if(rolename==role_names[i])break;
+  }
+  picked_role_field.className = role_text_color[i];
+}
+
+function handlePressEnd(){
+  console.log("up")
   picked_role_field.innerHTML = "###";
-})
+  picked_role_field.className = role_text_color[0];
+  rolename = "###";
+}
 
 
 let names = new Array();
@@ -67,10 +91,10 @@ function createNames(){
       brojac++;
     }
   }
-
-  console.log(names);
+  
+  console.log("Created names: ", names);
   shuffle(names);
-  console.log(names);
+  console.log("Shuffled names: ", names);
 }
 
 function disable(){
@@ -87,7 +111,7 @@ function enable(){
   // enable inputs and reset values
   for (const [name, element] of Object.entries(roles)) {
     element.disabled = false;
-    element.value = 0;
+    element.value = "";
   }
   // reset available roles to 0
   for(let i = 0; i < available_roles.length; i++){
@@ -106,6 +130,9 @@ function enable(){
 
   //
   roles_left.innerHTML = "#";
+
+  //
+  rolename = "###";
 }
 
 

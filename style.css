@@ -1,11 +1,10 @@
 *, *::before, *::after{ box-sizing: border-box; }
 
 body{
-  --dark: rgb(36, 36, 36);
+  --dark: rgb(20, 20, 20);
   font-family: sans-serif;
   font-size: 22px;
   margin: 0;
-
 }
 
 input{
@@ -13,8 +12,9 @@ input{
   font-weight: 700;
   border: solid white 1px;
   text-align: center;
+  color: inherit;
 }
-/* 
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -23,7 +23,7 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield;
-} */
+}
 
 input:focus,
 input:active
@@ -55,7 +55,7 @@ section{
 }
 
 .btn{
-
+  font-weight: bold;
   border: 0px;
   padding: 0.5em 1.5em;
   text-transform: uppercase;
@@ -69,6 +69,21 @@ section{
   opacity: 0.75;
 }
 
+.text-civil{
+  color: rgb(255, 255, 255);
+}
+
+.text-doctor{
+  color: rgb(0, 255, 0);
+}
+
+.text-police{
+  color: rgb(0, 0, 255);
+}
+
+.text-mafia{
+  color: rgb(255, 0, 0);
+}
 
 .picker{
 
@@ -81,64 +96,71 @@ section{
   justify-content: center;
   align-items: center;
 
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .picker input{
   max-width: 8ch;
 }
 
-.civil{
-  color: rgb(255, 255, 255);
-}
-
-.doctor{
-  color: rgb(0, 255, 0);
-}
-
-.policeman{
-  color: rgb(0, 0, 255);
-}
-
-.mafia{
-  color: rgb(255, 0, 0);
-}
 
 #civil{
-  color: rgb(255, 255, 255);
   background-color: rgb(120, 128, 120);
   border: 1px solid rgb(255, 255, 255);
 }
 
 #doctor{
-  color: rgb(0, 255, 0);
   background-color: rgb(8, 128, 8);
   border: 1px solid rgb(0, 255, 0);
 }
 
-#policeman{
-  color: rgb(0, 0, 255);
+#police{
   background-color: rgb(8, 8, 128);
   border: 1px solid rgb(0, 0, 255);
-  
 }
 
 #mafia{
-  color: rgb(255, 0, 0);
   background-color: rgb(128, 8, 8);
   border: 1px solid rgb(255, 0, 0);
 }
 
-.pickrole{
+.pick-role{
   align-items: center;
-  padding: 1em;
-  background-color: white;
-  color: black;
+  padding: 1.5em 0;
+  font-weight: 600;
+  font-size: 2rem;
 }
 
-.btn--clear{
-  padding: 0.5em 1em;
-  color: rgb(255, 0, 0);
-  background-color: rgb(128, 8, 8);
+.btn--pick{
+  width: 100%;
+  padding: 0.5em;
+  font-size: 2rem;
 }
+
+.btn--eye{
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: transparent;
+  color: white;
+  font-size: 0.5rem;
+}
+
+.pick-role svg{
+  height: 20px;
+  width: 20px;
+  fill: white;
+}
+
+.roles-left-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
 
