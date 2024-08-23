@@ -162,9 +162,10 @@ section{
 }
 
 .pick-role svg{
-  height: 20px;
-  width: 20px;
+  height: 50px;
+  width: 50px;
   fill: white;
+  margin: 2em 0;
 }
 
 .roles-left-section{
