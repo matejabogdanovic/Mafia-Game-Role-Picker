@@ -44,8 +44,9 @@ const role_text_color = ["text-civil", "text-civil", "text-civil", "text-civil"]
 let rolename = "###";
 function pickARole(){
   rolename = names.pop();
-
+  picked_role_field.innerHTML = "<i>Hidden!</i>";
   roles_left.innerHTML = names.length;
+  btn_pick.disabled = true;
 }
 
 let btn_eye = document.getElementById("eye");
@@ -65,9 +66,11 @@ function handlePressStart(){
     if(rolename==role_names[i])break;
   }
   picked_role_field.className = role_text_color[i];
+
 }
 
 function handlePressEnd(){
+  if(picked_role_field.innerHTML != "###" && names.length != 0)btn_pick.disabled = false;
   console.log("up")
   picked_role_field.innerHTML = "###";
   picked_role_field.className = role_text_color[0];
