@@ -11,13 +11,7 @@ let roles = {
 for (const [name, element] of Object.entries(roles)) {
   element.addEventListener("change", recalculateAvailableRoles)
 }
-function loadInputs(){
-  for (const [name, element] of Object.entries(roles)) {
-    let i = element.getAttribute("data-index");
-    available_roles[i] = Number(element.value==""?0:element.value);
-    console.log("Available roles list onload: ", available_roles)
-  }
-}
+
 // adding event listener when the button is pressed to pick a role and reset button
 let btn_pick = document.querySelector("#pick");
 let btn_reset = document.querySelector("#reset");
