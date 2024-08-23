@@ -59,6 +59,7 @@ section{
   border: 0px;
   padding: 0.5em 1.5em;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .btn:active{

@@ -108,16 +108,11 @@ function disable(){
 
 function enable(){
   change_disabled = false;
-  // enable inputs and reset values
+  // enable inputs
   for (const [name, element] of Object.entries(roles)) {
     element.disabled = false;
-    element.value = "";
   }
-  // reset available roles to 0
-  for(let i = 0; i < available_roles.length; i++){
-    available_roles[i] = 0;
-  }
-
+ 
   //
   picked = false;
   names = [];
@@ -133,6 +128,8 @@ function enable(){
 
   //
   rolename = "###";
+
+  
 }
 
 
